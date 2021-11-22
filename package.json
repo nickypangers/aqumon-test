@@ -1,0 +1,19 @@
+{
+  "name": "aqumon-test",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "echarts": "^5.2.2",
+    "vue": "^3.2.16",
+    "vue-echarts": "^6.0.0",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.9.3",
+    "vite": "^2.6.4"
+  }
+}
