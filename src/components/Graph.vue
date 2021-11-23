@@ -1,13 +1,11 @@
 <template>
   <div>
-    <pre>
-    {{ graphData[0] }}
-    </pre>
     <v-chart class="chart" :option="option" />
   </div>
 </template>
 <script>
-import data from "../assets/data.json";
+import graphData from "../assets/data.json";
+import specialData from "../assets/special.json";
 import { use } from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
 import { PieChart } from "echarts/charts";
@@ -17,7 +15,7 @@ import {
   LegendComponent,
 } from "echarts/components";
 import VChart, { THEME_KEY } from "vue-echarts";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
 use([
   CanvasRenderer,
@@ -36,7 +34,6 @@ export default {
     [THEME_KEY]: "dark",
   },
   setup() {
-    const graphData = data;
     const option = ref({
       title: {
         text: "10-Year Treasury Constant Maturity Minus 2-Year Treasury Constant Maturity",
@@ -63,14 +60,34 @@ export default {
       },
       yAxis: {
         type: "value",
+        axisLabel: {
+          formatter: "{value} %",
+        },
+        axisPointer: {
+          snap: true,
+        },
       },
+      dataZoom: [
+        {
+          start: 0,
+          end: graphData.length,
+        },
+      ],
       series: [
         {
           data: graphData.map((item) => item.value),
           type: "line",
+          markArea: {
+            itemStyle: {
+              color: "rgba(255,173,177,0.4)",
+            },
+            data: specialData,
+          },
         },
       ],
     });
+
+    onMounted(() => console.log(specialData));
 
     return {
       graphData,

@@ -1,12 +1,14 @@
-<script setup>
-import HelloWorld from "./components/HelloWorld.vue";
-import Graph from "./components/Graph.vue";
-</script>
-
 <template>
-  <HelloWorld />
   <Graph />
 </template>
+<script>
+import Graph from "./components/Graph.vue";
+export default {
+  components: {
+    Graph,
+  },
+};
+</script>
 
 <style>
 #app {
@@ -16,5 +18,6 @@ import Graph from "./components/Graph.vue";
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  /* background-color: #2c3e50; */
 }
 </style>
