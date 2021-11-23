@@ -7,6 +7,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "axios": "^0.24.0",
     "echarts": "^5.2.2",
     "vue": "^3.2.16",
     "vue-echarts": "^6.0.0",
