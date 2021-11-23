@@ -1,11 +1,24 @@
 <template>
-  <Graph />
+  <div class="w-screen h-screen">
+    <Graph />
+  </div>
 </template>
 <script>
 import Graph from "./components/Graph.vue";
+import { useStore } from "vuex";
 export default {
   components: {
     Graph,
+  },
+  setup() {
+    const store = useStore();
+
+    const toggleIsDarkMode = () => {
+      store.commit("setIsDarkMode", !store.state.isDarkMode);
+    };
+    return {
+      toggleIsDarkMode,
+    };
   },
 };
 </script>
@@ -17,7 +30,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-  /* background-color: #2c3e50; */
 }
 </style>
