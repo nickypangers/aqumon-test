@@ -1,14 +1,19 @@
 <template>
   <div class="w-screen h-screen">
-    <Graph />
+    <div class="flex justify-end">
+      <download-button />
+    </div>
+    <graph />
   </div>
 </template>
 <script>
 import Graph from "./components/Graph.vue";
+import DownloadButton from "./components/DownloadButton.vue";
 import { useStore } from "vuex";
 export default {
   components: {
     Graph,
+    DownloadButton,
   },
   setup() {
     const store = useStore();

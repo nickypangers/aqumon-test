@@ -5,6 +5,11 @@
     </p>
     <p>Last updated: {{ latestGraphData.name }}</p>
     <v-chart class="chart h-96" :option="option" />
+    <div class="container flex justify-between">
+      <p>Shaded areas indicate U.S. recessions.</p>
+      <p>Source: Federal Reserve Bank of St. Louis</p>
+      <p>fred.stlouisfed.org</p>
+    </div>
   </div>
 </template>
 <script>
